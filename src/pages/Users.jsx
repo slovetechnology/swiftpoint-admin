@@ -59,7 +59,7 @@ function Users() {
 return (
   <div className='w-[97%] mx-auto mt-5'>
     <div className="mb-5">
-      <div className="font-bold text-xl">All Users (100)</div>
+      <div className="font-bold text-xl">All Users ({data.length})</div>
     </div>
     <div className="overflow-x-auto">
       <div className="w-full">
