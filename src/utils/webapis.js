@@ -38,6 +38,10 @@ export const Webapis = {
     single_streak: 'admin/streak',
     all_users: 'admin/users',
     all_minings: 'admin/minings',
+    manage_banner: 'admin/manage-banner',
+    all_banners: 'admin/all-banners', 
+    single_banner: 'admin/single-banner',
+    delete_banner: 'admin/delete-banner',
 }
 
 

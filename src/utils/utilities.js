@@ -27,6 +27,10 @@ export const AdminSidenavs = [
         link: '/streaks',
     },
     {
+        title: 'Banners',
+        link: '/banners',
+    },
+    {
         title: 'Settings',
         link: '/settings',
     },
