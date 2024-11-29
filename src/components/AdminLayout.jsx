@@ -34,7 +34,7 @@ function AdminLayout({ children }) {
         (async () => {
             try {
                 const response = await Authgeturl(Webapis.profile)
-                if (response.status !== 200) return navigate('/login')
+                if (response.status !== 200) return navigate('/')
                 dispatch(dispatchWebProfile(response.data))
                 return setLogin(true)
             } catch (error) {
@@ -46,7 +46,7 @@ function AdminLayout({ children }) {
     function HandleLogoutAction() {
         setLogout(false)
         Cookies.remove(tokenName)
-        navigate('/login')
+        navigate('/')
         dispatch(dispatchWebProfile({}))
     }
 

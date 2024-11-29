@@ -32,7 +32,7 @@ function ResetPassword() {
             }
             const response = await Clientposturl(Webapis.reset_password, dataForm)
             if (response.status !== 200) return Notifies('Request failed', response.message, 'error')
-            navigate(`/login`)
+            navigate(`/`)
         } catch (error) {
             WebError(error)
         }
