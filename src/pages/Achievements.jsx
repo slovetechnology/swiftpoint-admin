@@ -225,7 +225,7 @@ function Achievements() {
                             </Forminput>
                             <div className="grid grid-cols-2 gap-16">
                                 <div className="">
-                                    <Formbutton className="bg-slate-400 text-xs" title="Back" onClick={() => setScreen(1)} loading={loads} />
+                                    <Formbutton className="bg-slate-400 text-xs" title="Back" onClick={() => setScreen(1)} />
                                 </div>
                                 <div className=""> <Formbutton className={'text-xs'} title="Continue" loading={isSubmitting} /> </div>
                             </div>
@@ -238,7 +238,7 @@ function Achievements() {
                             <div className="text-center my-5">Are you sure you want to approve {view.data?.firstname} {view.data?.lastname}'s {watchForm[0]} achievement</div>
                             <div className="grid grid-cols-2 gap-16">
                                 <div className="">
-                                    <Formbutton className="bg-slate-400 text-xs" title="Back" onClick={() => setScreen(2)} loading={loads} />
+                                    <Formbutton className="bg-slate-400 text-xs" title="Back" onClick={() => setScreen(2)} />
                                 </div>
                                 <div className=""> <Formbutton className="text-xs" title="Approve Submission" onClick={SubmitAction} loading={loads} /> </div>
                             </div>
