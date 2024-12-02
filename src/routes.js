@@ -12,6 +12,7 @@ import Streaks from "./pages/streak/Streaks";
 import Banners from "./pages/banner/Banners";
 import NewBanner from "./pages/banner/NewBanner";
 import EditBanner from "./pages/banner/EditBanner";
+import Achievements from "./pages/Achievements";
 
 
 
@@ -26,6 +27,7 @@ export const AuthRoutes = [
     {path: '/banners', element: Banners},
     {path: '/banners/new', element: NewBanner},
     {path: '/banners/edit/:id', element: EditBanner},
+    {path: '/achievements', element: Achievements},
 ]
 
 export const FormRoutes = [

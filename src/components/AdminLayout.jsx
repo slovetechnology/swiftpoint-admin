@@ -10,6 +10,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Dialog, DialogTitle, Drawer, DialogActions, DialogContent, DialogContentText, Button } from '@mui/material'
 import img from '../assets/swift_logo.png'
 import Cookies from 'js-cookie'
+import { decodeToken } from 'react-jwt'
 
 function AdminLayout({ children }) {
     const dispatch = useDispatch()
@@ -35,6 +36,8 @@ function AdminLayout({ children }) {
             try {
                 const response = await Authgeturl(Webapis.profile)
                 if (response.status !== 200) return navigate('/')
+                const decoded = decodeToken(Cookies.get(tokenName))
+                if (decoded.role !== 'admin') return navigate('/')
                 dispatch(dispatchWebProfile(response.data))
                 return setLogin(true)
             } catch (error) {

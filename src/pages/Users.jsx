@@ -1,10 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
 import { Notifies, WebError } from '../utils/utilities'
 import { Authgeturl, Authputurl, Webapis } from '../utils/webapis'
 import moment from 'moment'
 import img from "../assets/default.png"
-import { Dialog, DialogContent, DialogContentText, DialogTitle, MenuItem } from '@mui/material'
+import { Dialog, DialogContent, DialogTitle, MenuItem } from '@mui/material'
 import Forminput from '../components/Forminput'
 import Formbutton from '../components/Formbutton'
 import {useForm} from 'react-hook-form'
@@ -30,7 +29,6 @@ const RoleOptions = [
 ]
 
 function Users() {
-  const navigate = useNavigate()
   const [screen, setScreen] = useState(1)
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState({})
@@ -97,9 +95,6 @@ function Users() {
 
   if (loading) return (
     <div className='w-[97%] mx-auto mt-5'>
-      <div className="w-fit ml-auto mb-5">
-        <Link to="/streaks/new" className='bg-slate-800 py-3 px-4 rounded-lg text-white'>Create Streak</Link>
-      </div>
       <div className="overflow-x-auto">
         <div className="w-full">
           <table className="w-full table">

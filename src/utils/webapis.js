@@ -43,6 +43,8 @@ export const Webapis = {
     single_banner: 'admin/single-banner',
     delete_banner: 'admin/delete-banner',
     user_management: 'admin/user-management',
+    all_users_settings: 'admin/all-users-settings',
+    update_user_socials: 'admin/update-user-socials',
 }
 
 

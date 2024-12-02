@@ -38,4 +38,8 @@ export const AdminSidenavs = [
         title: 'Users',
         link: '/users',
     },
+    {
+        title: 'Achievements',
+        link: '/achievements',
+    },
 ]
