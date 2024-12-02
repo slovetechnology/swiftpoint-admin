@@ -36,7 +36,7 @@ function Banners() {
       <div className="w-fit ml-auto mb-5">
         <Link to="/banners/new" className='bg-slate-800 py-3 px-4 rounded-lg text-white'>Create Banner</Link>
       </div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto scrollsdown">
         <div className="w-full">
           <table className="w-full table">
             <thead>
@@ -58,7 +58,7 @@ return (
     <div className="w-fit ml-auto mb-5">
       <Link to="/banners/new" className='bg-slate-800 py-3 px-4 rounded-lg text-white'>Create Banner</Link>
     </div>
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto scrollsdown">
       <div className="w-full">
         <table className="w-full table">
           <thead>

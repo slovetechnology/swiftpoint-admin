@@ -97,7 +97,7 @@ function Achievements() {
 
     if (loading) return (
         <div className='w-[97%] mx-auto mt-5'>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto scrollsdown">
                 <div className="w-full">
                     <table className="w-full table">
                         <thead>
@@ -251,7 +251,7 @@ function Achievements() {
                 <div className="mb-5">
                     <div className="font-bold text-xl">All Users ({data.length})</div>
                 </div>
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto scrollsdown">
                     <div className="w-full">
                         <table className="w-full table">
                             <thead>
