@@ -8,21 +8,17 @@ import { FaArrowLeftLong } from 'react-icons/fa6'
 import { Notifies, WebError } from '../../utils/utilities'
 import { Authposturl, Webapis } from '../../utils/webapis'
 
-const DurationTypes = [
-    "minutes", "hours", "days"
-]
-
 const StatusOptions = [
     "active", "inactive"
 ]
 
-function StreakForm({streakData}) {
+function StreakForm({ streakData }) {
     const navigate = useNavigate()
     const { register, watch, formState: { isSubmitting, errors }, handleSubmit } = useForm({
         defaultValues: {
             name: streakData?.name ?? '',
             duration: streakData?.duration ?? '',
-            durationType: streakData?.durationType ?? '',
+            durationType: streakData?.durationType ?? 'days',
             bonus: streakData?.bonus ?? '',
             status: streakData?.status ?? '',
         }
@@ -31,6 +27,7 @@ function StreakForm({streakData}) {
     async function HandleSubmissionAction(values) {
         const sendData = {
             ...values,
+            durationType: 'days',
             tag: streakData?.id ? 'update' : 'create',
             id: streakData?.id ?? null
         }
@@ -52,24 +49,7 @@ function StreakForm({streakData}) {
                 </div>
                 <Forminput error={errors.name} errorMessage={errors.name?.message} {...register('name', { required: 'Name is required' })} content="Streak Name" />
                 <Forminput error={errors.bonus} errorMessage={errors.bonus?.message} {...register('bonus', { required: 'Bonus is required' })} content="Streak Bonus" type="number" />
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                    <Forminput error={errors.duration} errorMessage={errors.duration?.message} {...register('duration', { required: 'Duration is required' })} content="Duration" type="number" />
-                    <Forminput
-                        onChange={e => {
-                            const val = e.target.value
-                            setValue("durationType", val)
-                        }}
-                        value={watchForm[0] || ''}
-                        {...register('durationType', { required: 'Streak duration type is required' })}
-                        error={errors.durationType}
-                        errorMessage={errors.durationType?.message}
-                        content="Streak Duration Type"
-                        formtype="select">
-                        {DurationTypes.map((type, index) => (
-                            <MenuItem key={index} value={type}>{type}</MenuItem>
-                        ))}
-                    </Forminput>
-                </div>
+                <Forminput error={errors.duration} errorMessage={errors.duration?.message} {...register('duration', { required: 'Duration is required' })} content="Duration (In Days)" type="number" />
                 <Forminput
                     onChange={e => {
                         const val = e.target.value
