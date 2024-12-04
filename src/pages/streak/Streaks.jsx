@@ -73,7 +73,7 @@ return (
             {data.map((item, index) => (
               <tr key={index} className='border-b text-sm'>
                 <td className="p-3 truncate">{item.name}</td>
-                <td className="p-3 truncate">{item.duration} {item.durationType}</td>
+                <td className="p-3 truncate">{item.duration} {item.duration === 1 ? item.durationType?.replace(/s/g, "") : item.durationType}</td>
                 <td className="p-3 truncate">{item.bonus}</td>
                 <td className="p-3 truncate">{item.status}</td>
                 <td className="p-3 truncate">{moment(item.createdAt).format('DD-MM-YYYY')}</td>
