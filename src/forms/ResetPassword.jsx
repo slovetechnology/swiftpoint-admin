@@ -16,7 +16,7 @@ function ResetPassword() {
         }
     })
     const navigate = useNavigate()
-    const [searchParams,] = useSearchParams()
+    const [searchParams, setSearchParams] = useSearchParams()
     const search = searchParams.get('email')
 
     useEffect(() => {

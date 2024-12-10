@@ -31,6 +31,7 @@ export const Webapis = {
     notifications: 'user/notifications',
 
 
+    board: 'admin/board',
     manage_settings: 'admin/manage-setting',
     all_settings: 'admin/settings',
     manage_streak: 'admin/manage-streak',

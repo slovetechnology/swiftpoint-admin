@@ -29,7 +29,11 @@ function SettingsForm({settingsData}) {
       profileAccountBonus: settingsData?.profileAccountBonus ?? '',
       youtubeBonus: settingsData?.youtubeBonus ?? '',
       telegramBonus: settingsData?.telegramBonus ?? '',
-      profilePictureBonus: settingsData?.profilePictureBonus ?? ''
+      profilePictureBonus: settingsData?.profilePictureBonus ?? '',
+      facebookUrl: settingsData?.facebookUrl ?? '',
+      twitterUrl: settingsData?.twitterUrl ?? '',
+      youtubeUrl: settingsData?.youtubeUrl ?? '',
+      telegramUrl: settingsData?.telegramUrl ?? '',
     }
   })
 
@@ -134,6 +138,10 @@ function SettingsForm({settingsData}) {
             <Forminput error={errors.twitterBonus} errorMessage={errors.twitterBonus?.message} {...register('twitterBonus', {required: 'Twitter bonus is required'})} content="Twitter Bonus" type="number" />
             <Forminput error={errors.youtubeBonus} errorMessage={errors.youtubeBonus?.message} {...register('youtubeBonus', {required: 'Youtube bonus is required'})} content="Youtube Bonus" type="number" />
             <Forminput error={errors.telegramBonus} errorMessage={errors.telegramBonus?.message} {...register('telegramBonus', {required: 'Telegram bonus is required'})} content="Telegram Bonus" type="number" />
+            <Forminput error={errors.telegramUrl} errorMessage={errors.telegramUrl?.message} {...register('telegramUrl', {required: 'Telegram Url is required'})} content="Telegram Url"/>
+            <Forminput error={errors.youtubeUrl} errorMessage={errors.youtubeUrl?.message} {...register('youtubeUrl', {required: 'Youtube Url is required'})} content="Youtube Url"/>
+            <Forminput error={errors.facebookUrl} errorMessage={errors.facebookUrl?.message} {...register('facebookUrl', {required: 'Facebook Url is required'})} content="Facebook Url"/>
+            <Forminput error={errors.twitterUrl} errorMessage={errors.twitterUrl?.message} {...register('twitterUrl', {required: 'Twitter Url is required'})} content="Twitter Url"/>
           </div>
         </div>
         <div className="grid grid-cols-2 p-5 mt-5">
