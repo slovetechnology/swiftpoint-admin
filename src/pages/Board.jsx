@@ -113,10 +113,10 @@ function Board() {
                 <div className="flex flex-col items-center text-center bg-white mb-1 rounded-lg p-3 text-sm" key={index}>
                   <div className=""> <img src={item?.image ?? img} alt="" className="size-16 rounded-full object-contain border-2" /> </div>
                   <div className="">
-                    <div className="font-bold">{item.firstname} {item.lastname}</div>
-                    <div className="text-xs flex items-center justify-center gap-1"> <SlClock /> {moment(item.createdAt).calendar()}</div>
+                    <div className="font-bold">{item?.firstname} {item?.lastname}</div>
+                    <div className="text-xs flex items-center justify-center gap-1"> <SlClock /> {moment(item?.createdAt).calendar()}</div>
                     <div className="">{item.emailVerified ? 'Verified' : 'Pending'}</div>
-                    <div className="text-primary font-bold">{item.balance?.toLocaleString()}SP</div>
+                    <div className="text-primary font-bold">{item?.balance?.toLocaleString()}SP</div>
                   </div>
                 </div>
               ))}
@@ -129,10 +129,10 @@ function Board() {
                 <div key={index} className='flex gap-2 p-2.5 text-sm border-b'>
                   <div> <img src={item?.feeduser?.image ?? img} alt="" className="size-10 rounded-full object-contain" /> </div>
                   <div className="">
-                    <div className="font-bold">{item.feeduser.firstname} {item.feeduser.lastname} </div>
-                    <div className="text-xs flex items-center gap-1"> <SlClock /> {moment(item.createdAt).format("DD-MM-YYYY hh:ss a")}</div>
-                    <div className="font-bold">{item.title}</div>
-                    <div className="text-slate-500">{item.content} </div>
+                    <div className="font-bold">{item?.feeduser?.firstname} {item?.feeduser?.lastname} </div>
+                    <div className="text-xs flex items-center gap-1"> <SlClock /> {moment(item?.createdAt).format("DD-MM-YYYY hh:ss a")}</div>
+                    <div className="font-bold">{item?.title}</div>
+                    <div className="text-slate-500">{item?.content} </div>
                   </div>
                 </div>
               ))}
