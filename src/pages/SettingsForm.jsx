@@ -58,9 +58,9 @@ function SettingsForm({settingsData}) {
       <form onSubmit={handleSubmit(HandleSubmissionAction)}>
         <div className="bg-white p-5 w-[97%] mt-5 mx-auto">
           <div className="font-bold text-2xl mb-5">Mining Settings</div>
-          <Forminput {...register('mineBonus', {required: 'Mining bonus is required'})} error={errors.mineBonus} errorMessage={errors.mineBonus?.message} content="Mining Bonus" type="number" />
+          <Forminput {...register('mineBonus', {required: 'Mining bonus is required'})} error={errors.mineBonus} errorMessage={errors.mineBonus?.message} content="Mining Bonus" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <Forminput {...register('mineDuration', {required: 'Mining duration is required'})} error={errors.mineDuration} errorMessage={errors.mineDuration?.message} content="Mining Duration" type="number" />
+            <Forminput {...register('mineDuration', {required: 'Mining duration is required'})} error={errors.mineDuration} errorMessage={errors.mineDuration?.message} content="Mining Duration" />
             <Forminput
               onChange={e => {
                 const val = e.target.value
@@ -80,9 +80,9 @@ function SettingsForm({settingsData}) {
         </div>
         <div className="bg-white p-5 w-[97%] mt-5 mx-auto">
           <div className="font-bold text-2xl mb-5">Luckbox Settings</div>
-          <Forminput {...register('luckyboxBonus', {required: 'Luckybox bonus is required'})} error={errors.luckyboxBonus} errorMessage={errors.luckyboxBonus?.message} content="Luckbox Bonus" type="number" />
+          <Forminput {...register('luckyboxBonus', {required: 'Luckybox bonus is required'})} error={errors.luckyboxBonus} errorMessage={errors.luckyboxBonus?.message} content="Luckbox Bonus" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <Forminput {...register('luckyboxDuration', {required: 'Luckybox duration is required'})} error={errors.luckyboxDuration} errorMessage={errors.luckyboxDuration?.message} content="Luckbox Duration" type="number" />
+            <Forminput {...register('luckyboxDuration', {required: 'Luckybox duration is required'})} error={errors.luckyboxDuration} errorMessage={errors.luckyboxDuration?.message} content="Luckbox Duration" />
             <Forminput 
               onChange={e => {
                 const val = e.target.value
@@ -103,7 +103,7 @@ function SettingsForm({settingsData}) {
         <div className="bg-white p-5 w-[97%] mt-5 mx-auto">
           <div className="font-bold text-2xl mb-5">Streak Settings</div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <Forminput {...register('streakDuration', {required: 'Streak duration is required'})} error={errors.streakDuration} errorMessage={errors.streakDuration?.message} content="Streak Duration" type="number" />
+            <Forminput {...register('streakDuration', {required: 'Streak duration is required'})} error={errors.streakDuration} errorMessage={errors.streakDuration?.message} content="Streak Duration" />
             <Forminput 
               onChange={e => {
                 const val = e.target.value
@@ -124,20 +124,20 @@ function SettingsForm({settingsData}) {
         <div className="bg-white p-5 w-[97%] mt-5 mx-auto">
           <div className="font-bold text-2xl mb-5">Referral Settings</div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <Forminput {...register('referralBonus', {required: 'Referral bonus is required'})} error={errors.referralBonus} errorMessage={errors.referralBonus?.message} content="Referral Bonus" type="number" />
-            <Forminput {...register('referralCount', {required: 'Total to be referred for bonus is required'})} error={errors.referralCount} errorMessage={errors.referralCount?.message} content="Referral Count" type="number" />
+            <Forminput {...register('referralBonus', {required: 'Referral bonus is required'})} error={errors.referralBonus} errorMessage={errors.referralBonus?.message} content="Referral Bonus" />
+            <Forminput {...register('referralCount', {required: 'Total to be referred for bonus is required'})} error={errors.referralCount} errorMessage={errors.referralCount?.message} content="Referral Count" />
           </div>
         </div>
         <div className="bg-white p-5 w-[97%] mt-5 mx-auto">
           <div className="font-bold text-2xl mb-5">Achievments Settings</div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            <Forminput error={errors.usernameBonus} errorMessage={errors.usernameBonus?.message} {...register('usernameBonus', {required: 'Username bonus is required'})} content="Username Bonus" type="number" />
-            <Forminput error={errors.profileAccountBonus} errorMessage={errors.profileAccountBonus?.message} {...register('profileAccountBonus', {required: 'Profile account bonus is required'})} content="Profile Account Bonus" type="number" />
-            <Forminput error={errors.profilePictureBonus} errorMessage={errors.profilePictureBonus?.message} {...register('profilePictureBonus', {required: 'Profile picture bonus is required'})} content="Profile Picture Bonus" type="number" />
-            <Forminput error={errors.facebookBonus} errorMessage={errors.facebookBonus?.message} {...register('facebookBonus', {required: 'Facebook bonus is required'})} content="Facebook Bonus" type="number" />
-            <Forminput error={errors.twitterBonus} errorMessage={errors.twitterBonus?.message} {...register('twitterBonus', {required: 'Twitter bonus is required'})} content="Twitter Bonus" type="number" />
-            <Forminput error={errors.youtubeBonus} errorMessage={errors.youtubeBonus?.message} {...register('youtubeBonus', {required: 'Youtube bonus is required'})} content="Youtube Bonus" type="number" />
-            <Forminput error={errors.telegramBonus} errorMessage={errors.telegramBonus?.message} {...register('telegramBonus', {required: 'Telegram bonus is required'})} content="Telegram Bonus" type="number" />
+            <Forminput error={errors.usernameBonus} errorMessage={errors.usernameBonus?.message} {...register('usernameBonus', {required: 'Username bonus is required'})} content="Username Bonus" />
+            <Forminput error={errors.profileAccountBonus} errorMessage={errors.profileAccountBonus?.message} {...register('profileAccountBonus', {required: 'Profile account bonus is required'})} content="Profile Account Bonus" />
+            <Forminput error={errors.profilePictureBonus} errorMessage={errors.profilePictureBonus?.message} {...register('profilePictureBonus', {required: 'Profile picture bonus is required'})} content="Profile Picture Bonus" />
+            <Forminput error={errors.facebookBonus} errorMessage={errors.facebookBonus?.message} {...register('facebookBonus', {required: 'Facebook bonus is required'})} content="Facebook Bonus" />
+            <Forminput error={errors.twitterBonus} errorMessage={errors.twitterBonus?.message} {...register('twitterBonus', {required: 'Twitter bonus is required'})} content="Twitter Bonus" />
+            <Forminput error={errors.youtubeBonus} errorMessage={errors.youtubeBonus?.message} {...register('youtubeBonus', {required: 'Youtube bonus is required'})} content="Youtube Bonus" />
+            <Forminput error={errors.telegramBonus} errorMessage={errors.telegramBonus?.message} {...register('telegramBonus', {required: 'Telegram bonus is required'})} content="Telegram Bonus" />
             <Forminput error={errors.telegramUrl} errorMessage={errors.telegramUrl?.message} {...register('telegramUrl', {required: 'Telegram Url is required'})} content="Telegram Url"/>
             <Forminput error={errors.youtubeUrl} errorMessage={errors.youtubeUrl?.message} {...register('youtubeUrl', {required: 'Youtube Url is required'})} content="Youtube Url"/>
             <Forminput error={errors.facebookUrl} errorMessage={errors.facebookUrl?.message} {...register('facebookUrl', {required: 'Facebook Url is required'})} content="Facebook Url"/>
