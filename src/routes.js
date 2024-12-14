@@ -13,6 +13,7 @@ import Banners from "./pages/banner/Banners";
 import NewBanner from "./pages/banner/NewBanner";
 import EditBanner from "./pages/banner/EditBanner";
 import Achievements from "./pages/Achievements";
+import AllFeedbacks from "./pages/AllFeedbacks";
 
 
 
@@ -28,6 +29,7 @@ export const AuthRoutes = [
     {path: '/banners/new', element: NewBanner},
     {path: '/banners/edit/:id', element: EditBanner},
     {path: '/achievements', element: Achievements},
+    {path: '/feedbacks', element: AllFeedbacks},
 ]
 
 export const FormRoutes = [

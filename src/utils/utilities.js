@@ -42,4 +42,8 @@ export const AdminSidenavs = [
         title: 'Achievements',
         link: '/achievements',
     },
+    {
+        title: 'Feedbacks',
+        link: '/feedbacks',
+    },
 ]

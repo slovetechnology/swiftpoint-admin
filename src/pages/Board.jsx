@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import {FaAward} from 'react-icons/fa6'
-import {SlClock} from 'react-icons/sl'
+import {FaAward, FaCamera} from 'react-icons/fa6'
+import {SlCamera, SlClock} from 'react-icons/sl'
 import img from "../assets/swift_logo.png"
 import { WebError } from '../utils/utilities'
 import moment from 'moment'
 import { Authgeturl, Webapis } from '../utils/webapis'
+import { Link } from 'react-router-dom'
 
 
 function Board() {
@@ -123,7 +124,10 @@ function Board() {
             </div>
           </div>
           <div className="">
-            <div className="font-bold text-2xl mb-3">Latest FeedBacks</div>
+           <div className="flex items-center justify-between gap-10">
+           <div className="font-bold text-2xl mb-3">Latest FeedBacks</div>
+           <Link to='/feedbacks' className='text-blue-500 underline'>View all</Link>
+           </div>
             <div className="bg-white rounded-lg">
               {data?.feedbacks?.rows?.map((item, index) => (
                 <div key={index} className='flex gap-2 p-2.5 text-sm border-b'>
@@ -131,6 +135,7 @@ function Board() {
                   <div className="">
                     <div className="font-bold">{item?.feeduser?.firstname} {item?.feeduser?.lastname} </div>
                     <div className="text-xs flex items-center gap-1"> <SlClock /> {moment(item?.createdAt).format("DD-MM-YYYY hh:ss a")}</div>
+                    <div className="font-light">{item?.image ? <div className='flex items-center text-xs gap-2'> <SlCamera /> has an image </div> : ''}</div>
                     <div className="font-bold">{item?.title}</div>
                     <div className="text-slate-500">{item?.content} </div>
                   </div>

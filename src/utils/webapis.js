@@ -46,6 +46,7 @@ export const Webapis = {
     user_management: 'admin/user-management',
     all_users_settings: 'admin/all-users-settings',
     update_user_socials: 'admin/update-user-socials',
+    all_feedbacks: 'admin/feedbacks/all',
 }
 
 

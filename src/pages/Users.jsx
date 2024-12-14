@@ -7,6 +7,8 @@ import { Dialog, DialogContent, DialogTitle, MenuItem } from '@mui/material'
 import Forminput from '../components/Forminput'
 import Formbutton from '../components/Formbutton'
 import {useForm} from 'react-hook-form'
+import {useSearchParams} from 'react-router-dom'
+import CustomTablePagination from '../components/CustomTablePagination'
 
 const TableHeaders = [
   "Username",
@@ -32,7 +34,10 @@ function Users() {
   const [screen, setScreen] = useState(1)
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState({})
+  const [text, setText] = useState('')
   const [view, setView] = useState({ status: false, data: {} })
+  const [searchParams, setSearchParams] = useSearchParams()
+  const search = searchParams.get('page')
   const {register, handleSubmit, watch, setValue, formState: {errors, isSubmitting}} = useForm({
     defaultValues: {
       firstname: '',
@@ -45,9 +50,9 @@ function Users() {
   })
   const watchForm = watch(["suspend", "role"])
 
-  const FetchUsers = useCallback(async () => {
+  const FetchUsers = useCallback(async (tag) => {
     try {
-      const response = await Authgeturl(Webapis.all_users)
+      const response = await Authgeturl(`${Webapis.all_users}?p=${search ?? 1}${tag ? `&search=${tag}` : ''}`)
       if (response.status !== 200) return false
       setData(response.data)
     } catch (error) {
@@ -58,7 +63,7 @@ function Users() {
   }, [])
 
   useEffect(() => {
-    FetchUsers()
+    FetchUsers("")
   }, [FetchUsers])
 
   function HandleView() {
@@ -86,12 +91,27 @@ function Users() {
       if(response.status !== 200) return Notifies('Request failed', response.message, 'error')
         Notifies('Request Successful', response.message, 'success')
         HandleView()
-      FetchUsers()
+      FetchUsers("")
     } catch (error) {
       HandleView()
       WebError(error)
     }
   }
+
+  function HandlePagin(num) {
+    setSearchParams({ page: num })
+  }
+
+  function HandleSearching() {
+    if (!text) return FetchUsers("")
+    return FetchUsers(text)
+  }
+
+  function ClearSearch() {
+    setText('')
+    return FetchUsers("")
+  }
+
 
   if (loading) return (
     <div className='w-[97%] mx-auto mt-5'>
@@ -203,6 +223,17 @@ function Users() {
         <div className="mb-5">
           <div className="font-bold text-xl">All Users ({data.length})</div>
         </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+        <div className=""></div>
+        <div className="flex items-center justify-end gap-5">
+          <div className="flex items-center border rounded-xl bg-white shadow-xl">
+            <input value={text} onChange={e => setText(e.target.value)} type="text" placeholder="Search aything here..." className="outline-none w-full border-none bg-transparent p-2" />
+            <button onClick={HandleSearching} className="py-3 px-7 capitalize text-white bg-primary rounded-tr-xl rounded-br-xl">search</button>
+          </div>
+         {text && <button onClick={ClearSearch} className="py-3 px-4 bg-slate-400 text-white rounded-md">Clear</button>}
+        </div>
+      </div>
+
         <div className="overflow-x-auto scrollsdown">
           <div className="w-full">
             <table className="w-full table">
@@ -230,6 +261,12 @@ function Users() {
             </table>
           </div>
         </div>
+      <CustomTablePagination
+        onChange={HandlePagin}
+        page={search}
+        perPage={data.page_size}
+        total={data.total}
+      />
       </div>
     </>
   )
